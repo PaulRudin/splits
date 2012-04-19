@@ -25,7 +25,7 @@
 {% if splits %}
   <table>
   {% for d, m, s in splits %}
-  <tr> <td>{{d|round|int}}</td> <td>{{m|round|int}}:{{ '%2.0f' % s }}</td></tr>
+  <tr> <td>{{d|round|int}}</td> <td>{{m|round|int}}:{{ '%02.0f' % s }}</td></tr>
   {% endfor %}
   </table>
 {% endif %}

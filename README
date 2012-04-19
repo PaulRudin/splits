@@ -1,0 +1,13 @@
+This project contains quick and dirty code for inducing specified
+splits from a .tcx file (produced by various garmin gps watches).
+
+The file splits.py can be used standalone - it depends on numpy and
+scipy, and on the included garmin.py, which was generated from
+garmin's xml schema by generateDS.
+
+splits.wsgi contains a simple web app for running the same
+functionality. 
+
+See LICENCE.
+
+

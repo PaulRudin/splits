@@ -5,7 +5,7 @@ import itertools
 import garmin
 
 import numpy as np
-import scipy.interpolate as intp
+from scipy import interp
 
 def read_tcx(infile):
     return garmin.parse(infile)
@@ -47,10 +47,9 @@ def splits(d_and_ts, dist):
     data = np.array(list(d_and_ts))
     x = data[:,0]
     y = data[:,1]
-    f = intp.interp1d(x, y)
     maxd = x[-1]
     required = np.hstack((np.arange(0, maxd, dist), [maxd]))
-    result = f(required)
+    result = interp(required, x, y)
     result = np.diff(result)
     # we've taken the diffs for the times, so we're not interested in
     # the first distance any more.

@@ -2,47 +2,47 @@
 <html>
   <head>
     <title>Hello</title>
+    <style type="text/css">
+      p.disclaimer {font-size:75%}
+    </style>
   </head>
-  <style type="text/css">
-    p.disclaimer {font-size:75%}
-  </style>
-<body>
-<h1>Splits calculator</h1>
+  <body>
+    <h1>Splits calculator</h1>
 
-  <p>This is a little utility to compute arbitrary splits from a tcx
-  file. This is common problem - you have the splits from auto-lapping
-  or manual laps, but you're also interested in the splits for some
-  other distances. Or maybe you do not have any laps, but want to know
-  some splits. Just upload the tcx file and the requested interval (in
-  metres) and the splits will be calculated for you.</p>
+    <p>This is a little utility to compute arbitrary splits from a tcx
+      file. This is common problem - you have the splits from auto-lapping
+      or manual laps, but you're also interested in the splits for some
+      other distances. Or maybe you do not have any laps, but want to know
+      some splits. Just upload the tcx file and the requested interval (in
+      metres) and the splits will be calculated for you.</p>
 
-  <form enctype="multipart/form-data" method="post">
-    <p>File: <input type="file" name="tcxfile"/></p>
-    <p>Interval (metres) <input type="text" name="split" size="10" value="1000"/></p>
-    <p><input type="submit"/></p>
-  </form>
+    <form enctype="multipart/form-data" method="post">
+      <p>File: <input type="file" name="tcxfile" accept="*.tcx"/></p>
+      <p>Interval (metres) <input type="text" name="split" size="10" value="1000"/></p>
+      <p><input type="submit"/></p>
+    </form>
 
-{% if splits %}
-  <table>
-  {% for d, m, s in splits %}
-  <tr> <td>{{d|round|int}}</td> <td>{{m|round|int}}:{{ '%02.0f' % s }}</td></tr>
-  {% endfor %}
-  </table>
-{% endif %}
+    {% if splits %}
+    <table>
+      {% for d, m, s in splits %}
+      <tr> <td>{{d|round|int}}</td> <td>{{m|round|int}}:{{ '%02.0f' % s }}</td></tr>
+      {% endfor %}
+    </table>
+    {% endif %}
 
-<p class="disclaimer">
-Disclaimer: This seems to work for me - but don't rely on the
-results. If you have files for which you get an error or obviously
-wrong results let me know and I'll see if I can fix it. I don't
-deliberately keep copies of the tcx files once the splits have been
-calculated - but maybe I've made an error somewhere so don't rely on
-this!
-</p>
+    <p class="disclaimer">
+      Disclaimer: This seems to work for me - but don't rely on the
+      results. If you have files for which you get an error or obviously
+      wrong results let me know and I'll see if I can fix it. I don't
+      deliberately keep copies of the tcx files once the splits have been
+      calculated - but maybe I've made an error somewhere so don't rely on
+      this!
+    </p>
 
-<address>
-  <a href="mailto:paul@rudin.co.uk">Paul Rudin</a>
-</address>
-</body>
+    <address>
+      <a href="mailto:paul@rudin.co.uk">Paul Rudin</a>
+    </address>
+  </body>
 </html>
 
 
